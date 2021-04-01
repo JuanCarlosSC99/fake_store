@@ -1,0 +1,84 @@
+<div class="d-flex justify-content-between animated fast fadeIn">
+    <h1 class="mt-2 w-75" *ngIf="!isCategory">Resultados de <small>"{{ search }}"</small></h1>
+    <h1 class="mt-2 w-75" *ngIf="isCategory">Categoria <small>"{{ search }}"</small></h1>
+    <button class="btn btn-outline-info "
+            (click)="onBack()">To return</button>
+</div>
+<hr>
+
+<div class="row animated fast fadeIn">
+  <div class="col">
+      <app-product-card [products]="products"></app-product-card>
+      <div class="alert alert-danger mt-5" role="alert" *ngIf="products.length < 1">
+        No se encontraron resultados
+      </div>
+    </div>
+</div>
+
+<div class="accordion accordion-flush animated fast fadeIn" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" 
+                [ngClass]="{'collapsed': !showFilter}"
+                type="button" data-bs-toggle="collapse" 
+                data-bs-target="#flush-collapseOne" 
+                aria-expanded="false" 
+                aria-controls="flush-collapseOne"
+                (click)="showFilter = !showFilter">
+          Filter
+        </button>
+      </h2>
+      <div id="flush-collapseOne" 
+           class="accordion-collapse collapse" 
+           aria-labelledby="flush-headingOne" 
+           data-bs-parent="#accordionFlushExample"
+           [ngClass]="{'show': showFilter}">
+        <div class="accordion-body">
+          <form [formGroup]="form">
+
+            <ul>
+                <li>
+                  <b>By category</b>
+                  <div class="form-check mt-2">
+                    <input formControlName="electronics" class="form-check-input" type="checkbox" value="" id="electronics">
+                    <label class="form-check-label" for="electronics">
+                      Electronics
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input formControlName="jewelery" class="form-check-input" type="checkbox" value="" id="jewelery">
+                    <label class="form-check-label" for="jewelery">
+                      Jewelery
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input formControlName="men_clothing" class="form-check-input" type="checkbox" value="" id="men-clothing">
+                    <label class="form-check-label" for="men-clothing">
+                      Men clothing
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input formControlName="women_clothing" class="form-check-input" type="checkbox" value="" id="women-clothing">
+                    <label class="form-check-label" for="women-clothing">
+                      Women clothing
+                    </label>
+                  </div>
+                </li>
+                <li class="price-filter mt-3">
+                  <b>By price</b>
+                  <div class="form-text mt-2 d-flex">
+                    <input formControlName="min_price" class="form-control" type="number" value="" placeholder="min" maxlength="8"> <h2>-</h2>
+                    <input formControlName="max_price" class="form-control" type="number" value="" placeholder="max" maxlength="8">
+                  </div>
+                </li>
+                
+                <button type="button" class="btn btn-warning mt-4 d-block m-auto"
+                        (click)="onFilter(form)">Aplicar</button>
+                
+            </ul>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+    

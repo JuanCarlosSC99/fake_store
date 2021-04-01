@@ -1,0 +1,49 @@
+
+<nav class="navbar navbar-light animated fadeIn" *ngIf="show">
+  <div class="d-flex w-100 justify-content-center  align-items-center">
+    <a class="navbar-brand" routerLink="/home">FakeShop</a>
+    <div class="d-flex">
+      <input class="form-control search-control" 
+             type="search" 
+             placeholder="Search" 
+             aria-label="Search"
+             #search
+             (keyup.enter)="onSearch(search.value)">
+      <button class="btn btn-search" (click)="onSearch(search.value)">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+    <h4 class="login-text" routerLink="/login" *ngIf="!shopService.isAuthenticated()">
+      <span>Log in</span>
+    </h4>
+    <!-- <h4 class="user-text" *ngIf="shopService.isAuthenticated()" #user2>{{ shopService.myUser.user_name }}</h4> -->
+    
+    <div class="accordion accordion-flush" id="accordionFlushExample" *ngIf="shopService.isAuthenticated()">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed user-text" 
+                  type="button"
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#flush-collapsetwo" 
+                  aria-expanded="false">
+                  
+                  <span>{{ userName }}</span>
+          </button>
+        </h2>
+        <div id="flush-collapsetwo" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h4 class="user-text" (click)="logOut()">
+              <span>Log out</span>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+
+      <i class="bi bi-cart3" (click)="toShoppingCart()">
+        <span class="badge bg-primary rounded-pill">{{ itemsToBuy$ }}</span>
+      </i>
+    </div>
+  </div>
+</nav>

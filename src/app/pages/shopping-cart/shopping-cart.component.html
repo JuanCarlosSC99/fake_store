@@ -1,0 +1,49 @@
+<h2 class="mt-4">Shopping Cart</h2>
+
+  <div class="row mt-4 animated fadeIn">
+    <div class="col">
+        <table class="table text-dark text-center">
+            <thead class="">
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Per unit</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let product of cart$.products; let index = index" 
+                    class="pointer"
+                    [routerLink]="['/products', product.id]">
+                <td>
+                    <img [src]="product.image" alt="product.title" class="img-thumb">
+                </td>
+                <td>{{ product.title }}</td>
+                <td class="text-center">{{ product.category }}</td>
+                <td class="text-center">{{ product.quantity }}</td>
+                <td class="text-center">{{ product.price | currency }}</td>
+                <td class="text-center">{{ product.price * product.quantity | currency }}</td>
+                <i class="bi bi-x-circle pointer" (click)="deleteProduct( index )"></i>
+                
+            </tbody>
+            <tfoot>
+
+              <td>Total</td>
+              <td class="text-center">---</td>
+              <td class="text-center">---</td>
+              <td class="text-center">{{ cart$.quantity }} items</td>
+              <td class="text-center">---</td>
+              <td class="text-center">{{ cart$.totalPrice | currency }}</td>
+
+            </tfoot>
+
+        </table>
+        <div class="col mt-5" style="padding-left: 0;">
+            <button class="btn btn-info" (click)="onBack()">To return</button>
+            <button class="btn btn-warning btn-buy" 
+                    (click)="onPurchase()"
+                    *ngIf="cart$.products.length">Purchase</button>
+        </div>
+    </div>
+</div>

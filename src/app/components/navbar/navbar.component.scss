@@ -1,0 +1,73 @@
+
+@import "../../../variables.scss";
+
+.navbar {
+    background-color: #4b9bea!important;
+}
+
+.search-control {
+    width: 50vw;
+    border-right: none;
+    border-radius: 5px 0px 0px 5px;
+    border-color: $main-color;
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.btn-search {
+    background: $main-color;
+    margin-left: -2px;
+}
+
+.bi-cart3 {
+    font-size: 2rem;
+    cursor: pointer;
+    display: contents;
+
+    & .badge {
+        font-size: 0.7rem;
+        background-color: $main-color!important;
+        color: black;
+    }
+}
+
+.login-text, .user-text, .logout-text {
+    // color: rgba(89, 204, 250, 0.938);
+    color: black;
+    cursor: pointer;
+    margin-right: 10px;
+    
+    &:hover {
+        color: $main-color;
+    }
+}
+.login-text {
+    margin: 0% 3%;;
+}
+
+.accordion {
+    top: 0;
+    z-index: 1;
+    width: auto;
+
+    & .accordion-body {
+        box-shadow: 0px 0px 8px -1px;
+        min-width: max-content;
+        background: #f8f9fa;
+
+    }
+    
+    & .accordion-button:focus {
+        box-shadow: none;
+    }
+    
+}
+
+
+
+
+
+
+

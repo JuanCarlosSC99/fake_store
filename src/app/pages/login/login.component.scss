@@ -1,0 +1,40 @@
+@import "../../../variables.scss";
+
+.login-container {
+
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    background: linear-gradient( 180deg, #0095ff, #ff5200 );
+    
+    & img {
+        max-height: 17vw;
+        top: 10%;
+        margin-top: 10vh;
+    }
+    
+    & form {
+        width: 50%;
+        margin: auto;
+        background: white;
+        padding: 4%;
+        border-radius: 10px;
+        box-shadow: 2px 1px 16px -11px;
+        height: 43%;
+        min-height: 340px;
+        text-align: start;
+    }
+
+    & .btn {
+        background: $main-color;
+    }
+    
+    & input:focus {
+        border-color: $main-color;
+        box-shadow: none;
+    }
+    
+}

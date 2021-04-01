@@ -1,0 +1,38 @@
+<div class="login-container animated fadeIn">
+
+       <img src="assets/images/fakestore.png" alt="">
+       
+       <form [formGroup]="loginForm">
+           <div class="mb-3">
+             <label for="exampleInputEmail1" class="form-label">Email address</label>
+             <input formControlName="email" 
+                    type="email" 
+                    class="form-control" 
+                    aria-describedby="emailHelp"
+                    [class.is-invalid]="invalidEmail"
+                    autocomplete="username">
+             <div class="form-text">We'll never share your email with anyone else.</div>
+             <div class="form-text text-danger"
+                  *ngIf="invalidEmail">Invalid email.</div>
+           </div>
+           <div class="mb-3">
+             <label for="exampleInputPassword1" class="form-label">Password</label>
+             <input formControlName="password" 
+                    type="password" 
+                    class="form-control"
+                    [class.is-invalid]="invalidPassword"
+                    autocomplete="current-password">
+                    <div class="form-text text-danger"
+                  *ngIf="invalidPassword">Invalid password.</div>
+           </div>
+           <button type="button" 
+                   class="btn"
+                   (click)="onSubmit()">Submit</button>
+              </form>
+              
+              <div class="alert alert-danger w-25 m-auto mt-5 fade show" 
+                   role="alert" 
+                   *ngIf="accessDenied">
+                     invalid email or password!
+              </div>
+</div>

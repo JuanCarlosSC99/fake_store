@@ -1,0 +1,73 @@
+<div class="row animated fast fadeIn">
+    <div class="col-md-3 mb-5 product-card" *ngFor="let product of products">
+
+       <img [src]="product.image"
+            class="img-fluid poster pointer"
+            (click)="onProductClick( product )">
+            
+            <div class="mt-2 text-container">
+                <span class="badge rounded-pill bg-primary">{{ product.category }}</span>
+                <h3>{{ product.title }}</h3>
+                <h3>{{ product.price | currency }}</h3>
+            </div>
+            
+    </div>
+</div>
+
+
+
+
+
+<!-- <h2 class="text-center offers mt-5">Ofertas del día
+    <span class="badge rounded-pill">-25%</span>
+</h2>
+
+<div class="row row-cols-1 row-cols-md-6 g-4 mt-3">
+    <div *ngFor="let product of products | slice: 0:6" class="col"
+         (click)="onProductClick( product.id )">
+        <div class="card h-100">
+            <img [src]="product.image" class="img-fluid " [alt]="product.title">
+            <div class="card-body">
+                <span class="badge rounded-pill">{{ product.category }}</span>
+                <h6 class="before-offer">Antes {{ product.price + ( product.price * 0.25 )| currency}}</h6>
+                <h5 class="card-title">Ahora {{ product.price | currency}}</h5>
+    
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row row-cols-2 row-cols-md-2 g-4 mt-3 justify-content-md-between">
+    <div>
+        <h4 class="text-center offers mt-4">Seguro te gustará</h4>
+        <div class="row row-cols-md-3">
+            <div *ngFor="let product of products | slice: 6:9" class="col"
+                 (click)="onProductClick( product.id )">
+                <div class="card h-100">
+                    <img [src]="product.image" class="img-fluid " [alt]="product.title">
+                    <div class="card-body">
+                        <span class="badge rounded-pill">{{ product.category }}</span>
+                        <h5 class="card-title">{{ product.price | currency}}</h5>
+                        <small class="position-absolute">{{ product.title | slice: 0:20}}...</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h4 class="text-center offers mt-4">Los más comprados</h4>
+        <div class="row row-cols-md-3">
+            <div *ngFor="let product of products | slice: 9:12" class="col" 
+                 (click)="onProductClick( product.id )">
+                <div class="card h-100">
+                    <img [src]="product.image" class="img-fluid " [alt]="product.title">
+                    <div class="card-body"> 
+                        <span class="badge rounded-pill">{{ product.category }}</span>
+                        <h5 class="card-title">{{ product.price | currency}}</h5>
+                        <small class="position-absolute">{{ product.title | slice: 0:20}}...</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

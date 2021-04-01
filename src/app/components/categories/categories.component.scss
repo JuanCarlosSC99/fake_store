@@ -1,0 +1,13 @@
+.list-group-item {
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(89, 204, 250, 0.938);
+    }
+    
+}
+
+.badge {
+    background: rgba(89, 204, 250, 0.938) !important;
+    color: black;
+}
